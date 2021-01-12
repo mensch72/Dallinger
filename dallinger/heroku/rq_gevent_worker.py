@@ -25,6 +25,7 @@ from rq.version import VERSION
 
 
 class GeventDeathPenalty(BaseDeathPenalty):
+    _timeout = 24*60*60  # 1 day
     def setup_death_penalty(self):
         exception = JobTimeoutException(
             "Gevent Job exceeded maximum timeout value (%d seconds)." % self._timeout
