@@ -42,8 +42,8 @@ class GeventDeathPenalty(BaseDeathPenalty):
 
 class GeventWorker(Worker):
     death_penalty_class = GeventDeathPenalty
-    DEFAULT_POOL_SIZE = 20
-
+    DEFAULT_POOL_SIZE = 1000 # was 20, edited to serve more bots perworker
+    
     def __init__(self, *args, **kwargs):
         pool_size = self.DEFAULT_POOL_SIZE
         if "pool_size" in kwargs:
